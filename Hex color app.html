@@ -1,0 +1,48 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <title>HEX COLOR APP</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <main>
+        <div class="container">
+            <div id="hex-colors">
+                <h1> Click the button below to generate a random HEX background</h1>
+                <h2> Background: linear-gradient(to right,#<span "hexcode1">fffff</span>,#<span "hexcode2">fffff</span>;</h2>
+            </div>
+            <button id="submit" class="btn btn-light">Click me</button>
+
+        </div>
+      </main>
+      <script>
+        document.querySelector("#submit").addEventListener("click" ,() => {
+       var hex_numbers = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+       var hexcode1 = "";
+       var hexcode2 = "";
+       var random_index = 0;
+
+       for(let i = 0; i < 6;i++){
+         random_index = Math.floor(Math.random() * hex_numbers.length);
+           hexcode1 += hex_numbers[random_index];
+         random_index = Math.floor(Math.random() * hex_numbers.length);
+          hexcode2 += hex_numbers[random_index];
+       }
+
+        document.body.style.background = `linear-gradient(to right , #${hexcode1}, #${hexcode2})`;
+        document.querySelector("#hexcode1").textContent = hexcode1;
+        document.querySelector("#hexcode2").textContent = hexcode2;
+        });
+      </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
